@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1">
+	<link href="stylesheet/styles.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+		
+		.error-message {
+			display: inline-block;
+			background-color: #ddd;
+			font-size: 12px;
+			color: #222;
+			padding: 0 5px;
+			border-radius: 3px;
+			margin-bottom: 5px;
+		}
+		.hide {
+			display: none;
+		}
+		.pass-health {
+			margin-bottom: 5px;
+			font-size: 12px;
+			font-weight: bold;
+			color: #000007;
+		}
+		.pass-health>span:first-child {
+			display: inline-block;
+			width: 0;
+			height: 5px;
+			background-color: #ccc;
+			transition: all 0.1s linear;
+		}
+	</style>
+  </head>
+  <body ng-controller="cvCtrl">
+    <header>
+      <div class="container-lg group">
+        <i class="fa fa-facebook-official fa-lg pull-left"></i>
+      </div>
+    </header>
+	<section class="section-default signup-section">
+		<div class="container">
+			<div class="terms" style="width: 600px; margin: 20px;">
+				<p style="height: 100px; overflow: auto;" id="ok">the quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dog is that quick fox jump over the lazy dog. the quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dogthe quick brown fox jumps over the lazy dog. </p>
+				<button disabled>Got it</button>
+			</div>
+			<h1>Welcome</h1>
+			<h3>Register now and be awesome!</h3>
+			<div class="signup-info">
+				<form class="signup-form form-pretty form-block" onsubmit = "return validateForm()">
+					<label for="name">Name</label>
+					<span class="error-message hide">Name should not contain any digits or special characters</span>
+					<input type="text" name="name" id="name">
+					<label for="email">Email</label>
+					<span class="error-message hide">Enter a valid email address</span>
+					<input type="email" name="email" id="email">
+					<label for="p-num">Phone</label>
+					<span class="error-message hide">Enter a valid phone number</span>
+					<input type="tel" name="p-num" id="p-num">
+					<label for="password">Password</label>
+					<div class="pass-health hide">
+						<span></span>
+						<span></span>
+					</div>
+					<span class="error-message hide">Password should be at least 8 characters long</span>
+					<input type="password" name="password" id="password">
+					
+					<label for="confirmpass">Confirm password</label>
+					<span class="error-message hide">Passwords do not match</span>
+					<input type="password" name="confirmpass" id="confirmpass" style="margin-bottom: 30px;">
+					<button class="btn-cool">Register</button>
+				</form>
+			</div>
+		  <!--<div class="col-1-2 " >
+			 <h1>Why register on microCV?</h1>
+			<ul>
+				<li>To access all the feeds</li>
+				<li>To get in touch with recruiters</li>
+				<li>To build your own microCV</li>
+				<li>Because we're cool and you're awesome</li>
+			</ul>
+
+
+		  </div>
+		 </div> -->
+		</div>
+	</section>
+	<script>
+		var okp = document.getElementById('ok');
+		okp.addEventListener('scroll', function(){
+			if((okp.scrollHeight - (okp.scrollTop + okp.clientHeight) === 0)){
+			var b =document.querySelector('.terms>button');
+			b.disabled = false;
+			alert("bro");
+			}
+			
+		})
+		function validateForm(){
+		
+			
+			var errorMsg = document.querySelectorAll('span.error-message');
+			var form = document.querySelector('form');
+			if(!form.name.value){
+				form.name.focus();
+				return false;
+			}
+			if(form.name.value) {
+				var exp = /[^a-z ' ' ^a-z]/gi;
+				var test = exp.test(form.name.value);
+				if(test){
+					form.name.focus();
+					errorMsg[0].className = "error-message";
+					return false;
+				}
+				else {
+					errorMsg[0].className = "error-message hide";
+				}
+			}
+			if(!form.email.value) {
+				form.email.focus();
+				return false;
+			}
+			if(form.email.value) {
+				var emailVal = form.email.value;
+				var atPos = emailVal.indexOf('@');
+				var dotPos = emailVal.lastIndexOf('.');
+				if(emailVal.indexOf('@') === -1 || emailVal.indexOf('.') === -1 || emailVal.indexOf('@') === 0 || emailVal.indexOf('.') === 0 || (dotPos - atPos < 2)){
+				errorMsg[1].className = "error-message";
+				form.email.focus();
+				return false;
+				}
+				else {
+					errorMsg[1].className = "error-message hide";
+				}
+			}
+			if(!form.password.value){
+				form.password.focus();
+				return false;
+			}
+			if(form.password.value){
+				if(form.password.value.length < 8){
+					errorMsg[3].className = "error-message";
+					form.password.focus();
+					return false;
+				}
+				else {
+					errorMsg[3].className = "error-message hide";
+				}
+			}
+			if(!form.confirmpass.value){
+				form.confirmpass.focus();
+				return false;
+			}
+			if(form.confirmpass.value) {
+				if(form.confirmpass.value !== form.password.value){
+					errorMsg[4].className = "error-message";
+					form.confirmpass.focus();
+					return false;
+				}
+				else {
+					errorMsg[4].className = "error-message hide";
+				}
+			}
+			return false;
+		}
+		var passHealth = document.getElementById("password");
+		passHealth.addEventListener('keyup',function(){
+			
+			var healthMeter = document.querySelectorAll('.pass-health>span');
+			document.querySelector('.pass-health').style.display = "block";
+			if(passHealth.value.length > 0 && passHealth.value.length < 10){
+				healthMeter[0].style.width = "25px";
+				healthMeter[0].style.backgroundColor = "red";
+				healthMeter[1].textContent = "Weak";
+			}
+			else if(passHealth.value.length >= 10 && passHealth.value.length <= 15){
+				healthMeter[0].style.width = "50px";
+				healthMeter[0].style.backgroundColor = "orange";
+				healthMeter[1].textContent = "Medium";
+			}
+			else if(passHealth.value.length > 15){
+				healthMeter[0].style.width = "75px";
+				healthMeter[0].style.backgroundColor = "green";
+				healthMeter[1].textContent = "Strong";
+			}
+			else {
+				
+				healthMeter[0].style.width = "0";
+				healthMeter[1].textContent = "";
+				document.querySelector('.pass-health').style.display = "none";
+			}
+		})
+	</script>
+  </body>
+ </html>

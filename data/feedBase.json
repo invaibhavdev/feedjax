@@ -1,0 +1,55 @@
+{
+"main":[
+    {
+      "name":"Tom",
+      "age": "7",
+      "type": "cat",
+      "loves": "mice",
+      "hates": "Jerry",
+	  "id": "1",
+	  "email": "tom@onelocus.com",
+	  "password": "12345678"
+    },
+    {
+      "name":"Mot",
+      "age": "70",
+      "type": "tac",
+      "loves": "ecim",
+      "hates": "Yrrej",
+	   "id": "2",
+	   "email": "mot@onelocus.com",
+	   "password": "12345678"
+    },
+    {
+      "name":"Jerry",
+      "age": "6",
+      "type": "rat",
+      "loves": "cheese",
+      "hates": "Tom",
+	   "id": "3",
+	   "email": "jerry@onelocus.com",
+	   "password": "12345678"
+    },
+    {
+      "name":"Yrrej",
+      "age": "60",
+      "type": "tar",
+      "loves": "eseehc",
+      "hates": "Mot",
+	   "id": "4",
+	   "email": "yrrej@onelocus.com",
+	   "password": "12345678"
+    },
+    {
+      "name":"Bert",
+      "age": "13",
+      "type": "boy",
+      "loves": "ething",
+      "hates": "nothing",
+	   "id": "4",
+	   "email": "bert@onelocus.com",
+	   "password": "12345678"
+    }
+]
+
+}
