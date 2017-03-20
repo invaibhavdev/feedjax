@@ -15,7 +15,7 @@
 function showTooltip(e) {
 	var tipNow = true;
 	if(e.target.nodeName === 'A' && e.target.className === 'plain-name'){
-		var toolText = e.target.href;
+		var toolText = e.target.innerText;
 		var tipDiv = document.createElement('div');
 		tipDiv.className = "name-tooltip";
 		tipDiv.appendChild(document.createTextNode(toolText));
