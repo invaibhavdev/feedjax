@@ -220,13 +220,14 @@ header {
 	background-color: #5FBA7D;
 }
 .plain-name {
+	position: relative;
 	color: #333;
 }
 .name-tooltip {
 	position: absolute;
 	z-index: 11;
 	border-radius: 3px;
-	left: 45px;
+	right: 5px;
 	background-color: #000;
 	color: #eee;
 	padding: 2px 5px;
