@@ -32,7 +32,7 @@ var ticking = false;
     var feedPoster = document.createElement('h1');
 	
     var posterName = document.createElement('a');
-	posterName.href = "#";
+	posterName.href = obj.name;
 	posterName.className = "plain-name";
 	var posterText = document.createTextNode(obj.name);
 	posterName.appendChild(posterText);
