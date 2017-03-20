@@ -15,9 +15,10 @@
 function showTooltip(e) {
 	var tipNow = true;
 	if(e.target.nodeName === 'A' && e.target.className === 'plain-name'){
+		var toolText = e.target.nodeName.href;
 		var tipDiv = document.createElement('div');
 		tipDiv.className = "name-tooltip";
-		tipDiv.appendChild(document.createTextNode("ok"));
+		tipDiv.appendChild(document.createTextNode(toolText));
 		
 		e.target.parentNode.appendChild(tipDiv);
 		e.target.addEventListener('mouseout',function(){
