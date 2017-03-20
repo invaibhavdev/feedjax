@@ -221,16 +221,17 @@ header {
 }
 .plain-name {
 	position: relative;
+	display: inline-block;
 	color: #333;
 }
 .name-tooltip {
 	position: absolute;
+	right: 5px;
 	z-index: 11;
 	border-radius: 3px;
-	right: 5px;
+	padding: 2px 5px;
 	background-color: #000;
 	color: #eee;
-	padding: 2px 5px;
 	font-size: 12px;
 	
 }
