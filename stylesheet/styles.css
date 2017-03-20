@@ -225,8 +225,13 @@ header {
 .name-tooltip {
 	position: absolute;
 	z-index: 11;
-	border: 1px solid #ddd;
+	border-radius: 3px;
 	left: 45px;
+	background-color: #000;
+	color: #eee;
+	padding: 5px;
+	font-size: 12px;
+	
 }
 .user-avatar {
 	float: left;
