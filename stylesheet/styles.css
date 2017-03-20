@@ -226,7 +226,7 @@ header {
 .name-tooltip {
 	position: absolute;
 	left: 45px;
-	bottom: -5px;
+	bottom: 10px;
 	z-index: 11;
 	border-radius: 3px;
 	padding: 2px 5px;
